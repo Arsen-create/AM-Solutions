@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AM Solutions — Directeur de Projet IT · Financement Automobile</title>
-<meta name="description" content="AM Solutions — Directeur de projet IT spécialisé dans les applications de financement automobile. Conseil, pilotage et expertise pour les banques de financement.">
+<meta name="description" content="AM Solutions — Directeur de projet IT spécialisé dans les applications de financement automobile et la facturation électronique.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -12,14 +12,12 @@
     --ink: #1a1a18;
     --ink-muted: #6b6b65;
     --ink-faint: #c4c4bc;
-    --accent: #1a1a18;
     --line: #ddddd6;
     --white: #ffffff;
     --success: #2d6a4f;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -30,6 +28,31 @@
     line-height: 1.6;
     min-height: 100vh;
   }
+
+  /* ── LANG SWITCHER ── */
+  .lang-switcher {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .lang-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    background: none;
+    border: none;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    padding: 4px 6px;
+    transition: color 0.2s;
+  }
+  .lang-btn:hover { color: var(--ink-muted); }
+  .lang-btn.active { color: var(--ink); border-bottom-color: var(--ink); }
+  .lang-sep { color: var(--ink-faint); font-size: 10px; }
 
   /* ── NAV ── */
   nav {
@@ -43,24 +66,25 @@
     background: rgba(247,246,243,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
+    gap: 20px;
   }
 
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
     font-size: 20px;
-    letter-spacing: 0.5px;
     color: var(--ink);
     text-decoration: none;
+    flex-shrink: 0;
   }
 
-  .nav-links {
+  .nav-center {
     display: flex;
     gap: 36px;
     list-style: none;
   }
 
-  .nav-links a {
+  .nav-center a {
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -68,8 +92,7 @@
     text-decoration: none;
     transition: color 0.2s;
   }
-
-  .nav-links a:hover { color: var(--ink); }
+  .nav-center a:hover { color: var(--ink); }
 
   /* ── HERO ── */
   .hero {
@@ -94,7 +117,6 @@
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.1s;
   }
-
   .hero-eyebrow::before {
     content: '';
     display: block;
@@ -113,11 +135,7 @@
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.25s;
   }
-
-  h1 em {
-    font-style: italic;
-    font-weight: 300;
-  }
+  h1 em { font-style: italic; font-weight: 300; }
 
   .hero-desc {
     font-size: 14px;
@@ -149,7 +167,6 @@
     text-decoration: none;
     transition: opacity 0.2s;
   }
-
   .btn-primary:hover { opacity: 0.8; }
 
   .btn-secondary {
@@ -164,13 +181,9 @@
     text-decoration: none;
     transition: background 0.2s, color 0.2s;
   }
+  .btn-secondary:hover { background: var(--ink); color: var(--white); }
 
-  .btn-secondary:hover {
-    background: var(--ink);
-    color: var(--white);
-  }
-
-  /* ── SECTION BASE ── */
+  /* ── SECTIONS ── */
   section {
     max-width: 1100px;
     margin: 0 auto;
@@ -188,7 +201,6 @@
     align-items: center;
     gap: 16px;
   }
-
   .section-label::after {
     content: '';
     flex: 1;
@@ -210,7 +222,6 @@
     padding: 36px 32px;
     transition: background 0.2s;
   }
-
   .expertise-item:hover { background: var(--white); }
 
   .expertise-num {
@@ -234,7 +245,7 @@
     line-height: 1.8;
   }
 
-  /* ── RESSOURCES (liens) ── */
+  /* ── RESSOURCES ── */
   .resources-list {
     display: flex;
     flex-direction: column;
@@ -254,9 +265,7 @@
     transition: background 0.2s;
     gap: 20px;
   }
-
   .resource-item:hover { background: var(--white); }
-
   .resource-left { flex: 1; }
 
   .resource-tag {
@@ -285,11 +294,7 @@
     transition: transform 0.2s, color 0.2s;
     flex-shrink: 0;
   }
-
-  .resource-item:hover .resource-arrow {
-    transform: translateX(4px);
-    color: var(--ink);
-  }
+  .resource-item:hover .resource-arrow { transform: translateX(4px); color: var(--ink); }
 
   /* ── CONTACT ── */
   .contact-grid {
@@ -297,13 +302,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 64px;
     align-items: start;
-  }
-
-  @media (max-width: 720px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    nav { padding: 16px 24px; }
-    .nav-links { gap: 20px; }
-    .hero, section { padding-left: 24px; padding-right: 24px; }
   }
 
   .contact-intro h2 {
@@ -320,18 +318,8 @@
     line-height: 1.9;
   }
 
-  /* Form */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .contact-form { display: flex; flex-direction: column; gap: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
 
   .form-group label {
     font-size: 10px;
@@ -354,20 +342,11 @@
     width: 100%;
     resize: none;
   }
-
   .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: var(--ink);
-  }
-
+  .form-group textarea:focus { border-color: var(--ink); }
   .form-group textarea { height: 120px; }
 
-  .form-submit {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
+  .form-submit { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 
   .btn-submit {
     padding: 14px 36px;
@@ -381,15 +360,10 @@
     cursor: pointer;
     transition: opacity 0.2s;
   }
-
   .btn-submit:hover { opacity: 0.75; }
   .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
 
-  .form-status {
-    font-size: 12px;
-    color: var(--ink-muted);
-  }
-
+  .form-status { font-size: 12px; color: var(--ink-muted); }
   .form-status.success { color: var(--success); }
   .form-status.error { color: #c0392b; }
 
@@ -412,11 +386,7 @@
     font-weight: 600;
   }
 
-  .footer-copy {
-    font-size: 11px;
-    color: var(--ink-faint);
-    letter-spacing: 1px;
-  }
+  .footer-copy { font-size: 11px; color: var(--ink-faint); letter-spacing: 1px; }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
@@ -429,10 +399,14 @@
     transform: translateY(16px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    nav { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+    .nav-center { gap: 16px; }
+    .hero, section { padding-left: 24px; padding-right: 24px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   }
 </style>
 </head>
@@ -441,81 +415,87 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">AM Solutions</a>
-  <ul class="nav-links">
-    <li><a href="#expertise">Expertise</a></li>
-    <li><a href="#ressources">Ressources</a></li>
-    <li><a href="#contact">Contact</a></li>
+  <ul class="nav-center">
+    <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
+    <li><a href="#ressources" data-i18n="nav.resources">Ressources</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
   </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" onclick="setLang('it')">IT</button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <p class="hero-eyebrow">Directeur de Projet IT · Indépendant</p>
+  <p class="hero-eyebrow" data-i18n="hero.eyebrow">Directeur de Projet IT · Indépendant</p>
   <h1>AM<br><em>Solutions</em></h1>
-  <p class="hero-desc">
-    Spécialisé dans les applications IT pour les banques de financement automobile. 
-    Pilotage de projets complexes, expertise métier et transformation digitale.
-  </p>
+  <p class="hero-desc" data-i18n="hero.desc">Spécialisé dans les applications IT pour les banques de financement automobile. Pilotage de projets complexes, expertise métier et transformation digitale.</p>
   <div class="hero-cta">
-    <a href="#contact" class="btn-primary">Prendre contact</a>
-    <a href="#ressources" class="btn-secondary">Voir les ressources</a>
+    <a href="#contact" class="btn-primary" data-i18n="hero.cta1">Prendre contact</a>
+    <a href="#ressources" class="btn-secondary" data-i18n="hero.cta2">Voir les ressources</a>
   </div>
 </div>
 
 <!-- EXPERTISE -->
 <section id="expertise">
-  <div class="section-label fade-in">Domaines d'expertise</div>
+  <div class="section-label fade-in" data-i18n="expertise.label">Domaines d'expertise</div>
   <div class="expertise-grid fade-in">
     <div class="expertise-item">
       <div class="expertise-num">01</div>
-      <div class="expertise-title">Pilotage de projet</div>
-      <p class="expertise-desc">Direction et coordination de projets IT d'envergure dans des environnements bancaires exigeants.</p>
+      <div class="expertise-title" data-i18n="exp1.title">Pilotage de projet</div>
+      <p class="expertise-desc" data-i18n="exp1.desc">Direction et coordination de projets IT d'envergure dans des environnements bancaires exigeants.</p>
     </div>
     <div class="expertise-item">
       <div class="expertise-num">02</div>
-      <div class="expertise-title">Financement auto</div>
-      <p class="expertise-desc">Expertise approfondie des processus et systèmes d'information des banques de financement automobile.</p>
+      <div class="expertise-title" data-i18n="exp2.title">Financement auto</div>
+      <p class="expertise-desc" data-i18n="exp2.desc">Expertise approfondie des processus et systèmes d'information des banques de financement automobile.</p>
     </div>
     <div class="expertise-item">
       <div class="expertise-num">03</div>
-      <div class="expertise-title">Transformation digitale</div>
-      <p class="expertise-desc">Accompagnement des organisations dans la modernisation de leurs applications et processus métier.</p>
+      <div class="expertise-title" data-i18n="exp3.title">Transformation digitale</div>
+      <p class="expertise-desc" data-i18n="exp3.desc">Accompagnement des organisations dans la modernisation de leurs applications et processus métier.</p>
     </div>
     <div class="expertise-item">
       <div class="expertise-num">04</div>
-      <div class="expertise-title">Conseil & stratégie</div>
-      <p class="expertise-desc">Analyse des besoins, définition des roadmaps et alignement des solutions IT avec les objectifs business.</p>
+      <div class="expertise-title" data-i18n="exp4.title">Conseil & stratégie</div>
+      <p class="expertise-desc" data-i18n="exp4.desc">Analyse des besoins, définition des roadmaps et alignement des solutions IT avec les objectifs business.</p>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-num">05</div>
+      <div class="expertise-title" data-i18n="exp5.title">Facturation électronique</div>
+      <p class="expertise-desc" data-i18n="exp5.desc">Maîtrise approfondie des réglementations françaises et européennes (e‑invoicing & e‑reporting) et des architectures Peppol. Accompagnement des organisations dans la conception, l'implémentation et l'industrialisation de leurs processus de facturation électronique.</p>
     </div>
   </div>
 </section>
 
 <!-- RESSOURCES -->
 <section id="ressources">
-  <div class="section-label fade-in">Ressources & outils</div>
+  <div class="section-label fade-in" data-i18n="resources.label">Ressources & outils</div>
   <div class="resources-list fade-in">
     <a href="https://arsen-create.github.io/dacia-jogger-consommation/" target="_blank" class="resource-item">
       <div class="resource-left">
-        <div class="resource-tag">Outil · Automobile</div>
-        <div class="resource-title">Dacia Jogger — Comparateur GPL / SP98</div>
-        <div class="resource-desc">Analyse de la consommation et du coût réel selon la vitesse, avec fourchettes de prix.</div>
+        <div class="resource-tag" data-i18n="res1.tag">Outil · Automobile</div>
+        <div class="resource-title" data-i18n="res1.title">Dacia Jogger — Comparateur GPL / SP98</div>
+        <div class="resource-desc" data-i18n="res1.desc">Analyse de la consommation et du coût réel selon la vitesse, avec fourchettes de prix.</div>
       </div>
       <span class="resource-arrow">→</span>
     </a>
-    <!-- Ajouter d'autres liens ici -->
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label fade-in">Contact</div>
+  <div class="section-label fade-in" data-i18n="contact.label">Contact</div>
   <div class="contact-grid">
     <div class="contact-intro fade-in">
-      <h2>Travaillons<br><em>ensemble</em></h2>
-      <p>
-        Vous avez un projet IT dans le secteur du financement automobile ?
-        Une mission de conseil ou de pilotage à confier ?<br><br>
-        Décrivez votre besoin et je vous répondrai dans les meilleurs délais.
-      </p>
+      <h2 data-i18n="contact.title">Travaillons<br><em>ensemble</em></h2>
+      <p data-i18n="contact.intro">Vous avez un projet IT dans le secteur du financement automobile ? Une mission de conseil ou de pilotage à confier ?<br><br>Décrivez votre besoin et je vous répondrai dans les meilleurs délais.</p>
     </div>
     <form class="contact-form fade-in" id="contactForm">
       <input type="hidden" name="access_key" value="86c9d105-5132-4937-b115-00e0c1bd1295">
@@ -523,23 +503,23 @@
       <input type="hidden" name="from_name" value="AM Solutions Website">
       <input type="checkbox" name="botcheck" style="display:none">
       <div class="form-group">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+        <label for="fname" data-i18n="form.name">Nom</label>
+        <input type="text" id="fname" name="name" data-i18n-ph="form.name_ph" placeholder="Votre nom" required>
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+        <label for="femail" data-i18n="form.email">Email</label>
+        <input type="email" id="femail" name="email" placeholder="votre@email.com" required>
       </div>
       <div class="form-group">
-        <label for="company">Société</label>
-        <input type="text" id="company" name="company" placeholder="Votre société (optionnel)">
+        <label for="fcompany" data-i18n="form.company">Société</label>
+        <input type="text" id="fcompany" name="company" data-i18n-ph="form.company_ph" placeholder="Votre société (optionnel)">
       </div>
       <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Décrivez votre projet ou besoin…" required></textarea>
+        <label for="fmessage" data-i18n="form.message">Message</label>
+        <textarea id="fmessage" name="message" data-i18n-ph="form.message_ph" placeholder="Décrivez votre projet ou besoin…" required></textarea>
       </div>
       <div class="form-submit">
-        <button type="submit" class="btn-submit" id="submitBtn">Envoyer</button>
+        <button type="submit" class="btn-submit" id="submitBtn" data-i18n="form.send">Envoyer</button>
         <span class="form-status" id="formStatus"></span>
       </div>
     </form>
@@ -549,59 +529,146 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-brand">AM Solutions</span>
-  <span class="footer-copy">© 2026 · Tous droits réservés</span>
+  <span class="footer-copy" data-i18n="footer.copy">© 2026 · Tous droits réservés</span>
 </footer>
 
 <script>
-// ── Scroll animations ──
+const i18n = {
+  fr: {
+    'nav.expertise':'Expertise','nav.resources':'Ressources','nav.contact':'Contact',
+    'hero.eyebrow':'Directeur de Projet IT · Indépendant',
+    'hero.desc':"Spécialisé dans les applications IT pour les banques de financement automobile. Pilotage de projets complexes, expertise métier et transformation digitale.",
+    'hero.cta1':'Prendre contact','hero.cta2':'Voir les ressources',
+    'expertise.label':"Domaines d'expertise",
+    'exp1.title':'Pilotage de projet','exp1.desc':"Direction et coordination de projets IT d'envergure dans des environnements bancaires exigeants.",
+    'exp2.title':'Financement auto','exp2.desc':"Expertise approfondie des processus et systèmes d'information des banques de financement automobile.",
+    'exp3.title':'Transformation digitale','exp3.desc':"Accompagnement des organisations dans la modernisation de leurs applications et processus métier.",
+    'exp4.title':'Conseil & stratégie','exp4.desc':"Analyse des besoins, définition des roadmaps et alignement des solutions IT avec les objectifs business.",
+    'exp5.title':'Facturation électronique','exp5.desc':"Maîtrise approfondie des réglementations françaises et européennes (e‑invoicing & e‑reporting) et des architectures Peppol. Accompagnement des organisations dans la conception, l'implémentation et l'industrialisation de leurs processus de facturation électronique.",
+    'resources.label':'Ressources & outils',
+    'res1.tag':'Outil · Automobile','res1.title':'Dacia Jogger — Comparateur GPL / SP98','res1.desc':'Analyse de la consommation et du coût réel selon la vitesse, avec fourchettes de prix.',
+    'contact.label':'Contact','contact.title':'Travaillons<br><em>ensemble</em>',
+    'contact.intro':"Vous avez un projet IT dans le secteur du financement automobile ? Une mission de conseil ou de pilotage à confier ?<br><br>Décrivez votre besoin et je vous répondrai dans les meilleurs délais.",
+    'form.name':'Nom','form.name_ph':'Votre nom','form.email':'Email','form.company':'Société','form.company_ph':'Votre société (optionnel)','form.message':'Message','form.message_ph':'Décrivez votre projet ou besoin…',
+    'form.send':'Envoyer','form.sending':'Envoi…','form.success':'✓ Message envoyé — je vous répondrai rapidement.','form.error':'✗ Une erreur est survenue. Veuillez réessayer.',
+    'footer.copy':'© 2026 · Tous droits réservés'
+  },
+  en: {
+    'nav.expertise':'Expertise','nav.resources':'Resources','nav.contact':'Contact',
+    'hero.eyebrow':'IT Project Director · Independent',
+    'hero.desc':'Specialised in IT applications for automotive finance banks. Complex project management, business expertise and digital transformation.',
+    'hero.cta1':'Get in touch','hero.cta2':'View resources',
+    'expertise.label':'Areas of expertise',
+    'exp1.title':'Project management','exp1.desc':'Direction and coordination of large-scale IT projects in demanding banking environments.',
+    'exp2.title':'Automotive finance','exp2.desc':'In-depth expertise in the processes and information systems of automotive finance banks.',
+    'exp3.title':'Digital transformation','exp3.desc':'Supporting organisations in modernising their applications and business processes.',
+    'exp4.title':'Consulting & strategy','exp4.desc':'Needs analysis, roadmap definition and alignment of IT solutions with business objectives.',
+    'exp5.title':'Electronic invoicing','exp5.desc':'Deep knowledge of French and European regulations (e‑invoicing & e‑reporting) and Peppol architectures. Supporting organisations in the design, implementation and industrialisation of their electronic invoicing processes.',
+    'resources.label':'Resources & tools',
+    'res1.tag':'Tool · Automotive','res1.title':'Dacia Jogger — LPG / SP98 Comparison','res1.desc':'Analysis of fuel consumption and actual cost by speed, with price ranges.',
+    'contact.label':'Contact','contact.title':"Let's work<br><em>together</em>",
+    'contact.intro':'Do you have an IT project in the automotive finance sector? A consulting or project management assignment?<br><br>Describe your needs and I will get back to you promptly.',
+    'form.name':'Name','form.name_ph':'Your name','form.email':'Email','form.company':'Company','form.company_ph':'Your company (optional)','form.message':'Message','form.message_ph':'Describe your project or need…',
+    'form.send':'Send','form.sending':'Sending…','form.success':'✓ Message sent — I will reply shortly.','form.error':'✗ An error occurred. Please try again.',
+    'footer.copy':'© 2026 · All rights reserved'
+  },
+  de: {
+    'nav.expertise':'Expertise','nav.resources':'Ressourcen','nav.contact':'Kontakt',
+    'hero.eyebrow':'IT-Projektleiter · Freiberuflich',
+    'hero.desc':'Spezialisiert auf IT-Anwendungen für Automobilfinanzierungsbanken. Steuerung komplexer Projekte, Fachkompetenz und digitale Transformation.',
+    'hero.cta1':'Kontakt aufnehmen','hero.cta2':'Ressourcen ansehen',
+    'expertise.label':'Fachgebiete',
+    'exp1.title':'Projektsteuerung','exp1.desc':'Leitung und Koordination umfangreicher IT-Projekte in anspruchsvollen Bankenumgebungen.',
+    'exp2.title':'Automobilfinanzierung','exp2.desc':'Fundierte Kenntnisse der Prozesse und Informationssysteme von Automobilfinanzierungsbanken.',
+    'exp3.title':'Digitale Transformation','exp3.desc':'Begleitung von Organisationen bei der Modernisierung ihrer Anwendungen und Geschäftsprozesse.',
+    'exp4.title':'Beratung & Strategie','exp4.desc':'Bedarfsanalyse, Roadmap-Definition und Ausrichtung von IT-Lösungen an Unternehmenszielen.',
+    'exp5.title':'Elektronische Rechnungsstellung','exp5.desc':'Tiefgreifende Kenntnisse der französischen und europäischen Vorschriften (e‑invoicing & e‑reporting) und Peppol-Architekturen. Begleitung von Organisationen bei Konzeption, Implementierung und Industrialisierung ihrer elektronischen Rechnungsprozesse.',
+    'resources.label':'Ressourcen & Tools',
+    'res1.tag':'Tool · Automobil','res1.title':'Dacia Jogger — LPG / SP98 Vergleich','res1.desc':'Analyse des Kraftstoffverbrauchs und der tatsächlichen Kosten nach Geschwindigkeit, mit Preisspannen.',
+    'contact.label':'Kontakt','contact.title':'Lassen Sie uns<br><em>zusammenarbeiten</em>',
+    'contact.intro':'Haben Sie ein IT-Projekt im Bereich Automobilfinanzierung? Eine Beratungs- oder Projektmanagement-Mission?<br><br>Beschreiben Sie Ihren Bedarf und ich melde mich zeitnah bei Ihnen.',
+    'form.name':'Name','form.name_ph':'Ihr Name','form.email':'E-Mail','form.company':'Unternehmen','form.company_ph':'Ihr Unternehmen (optional)','form.message':'Nachricht','form.message_ph':'Beschreiben Sie Ihr Projekt oder Ihren Bedarf…',
+    'form.send':'Senden','form.sending':'Wird gesendet…','form.success':'✓ Nachricht gesendet — ich antworte Ihnen bald.','form.error':'✗ Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.',
+    'footer.copy':'© 2026 · Alle Rechte vorbehalten'
+  },
+  it: {
+    'nav.expertise':'Competenze','nav.resources':'Risorse','nav.contact':'Contatto',
+    'hero.eyebrow':'Direttore di Progetto IT · Freelance',
+    'hero.desc':'Specializzato nelle applicazioni IT per le banche di finanziamento automobilistico. Gestione di progetti complessi, competenza settoriale e trasformazione digitale.',
+    'hero.cta1':'Contattami','hero.cta2':'Vedi le risorse',
+    'expertise.label':'Aree di competenza',
+    'exp1.title':'Gestione progetti','exp1.desc':'Direzione e coordinamento di progetti IT di ampia portata in ambienti bancari esigenti.',
+    'exp2.title':'Finanziamento auto','exp2.desc':'Competenza approfondita nei processi e nei sistemi informativi delle banche di finanziamento automobilistico.',
+    'exp3.title':'Trasformazione digitale','exp3.desc':'Accompagnamento delle organizzazioni nella modernizzazione delle loro applicazioni e processi aziendali.',
+    'exp4.title':'Consulenza & strategia','exp4.desc':'Analisi dei fabbisogni, definizione delle roadmap e allineamento delle soluzioni IT agli obiettivi aziendali.',
+    'exp5.title':'Fatturazione elettronica','exp5.desc':'Conoscenza approfondita delle normative francesi ed europee (e‑invoicing & e‑reporting) e delle architetture Peppol. Supporto alle organizzazioni nella progettazione, implementazione e industrializzazione dei processi di fatturazione elettronica.',
+    'resources.label':'Risorse & strumenti',
+    'res1.tag':'Strumento · Automotive','res1.title':'Dacia Jogger — Confronto GPL / SP98','res1.desc':'Analisi del consumo di carburante e del costo reale in base alla velocità, con fasce di prezzo.',
+    'contact.label':'Contatto','contact.title':'Lavoriamo<br><em>insieme</em>',
+    'contact.intro':"Avete un progetto IT nel settore del finanziamento automobilistico? Una missione di consulenza o gestione progetti?<br><br>Descrivete il vostro bisogno e vi risponderò nel più breve tempo possibile.",
+    'form.name':'Nome','form.name_ph':'Il vostro nome','form.email':'Email','form.company':'Azienda','form.company_ph':'La vostra azienda (opzionale)','form.message':'Messaggio','form.message_ph':'Descrivete il vostro progetto o esigenza…',
+    'form.send':'Invia','form.sending':'Invio…','form.success':'✓ Messaggio inviato — vi risponderò a breve.','form.error':'✗ Si è verificato un errore. Riprovate.',
+    'footer.copy':'© 2026 · Tutti i diritti riservati'
+  }
+};
+
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
+  });
+
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (i18n[lang][key] !== undefined) el.placeholder = i18n[lang][key];
+  });
+}
+
+// Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(el => {
-    if (el.isIntersecting) {
-      el.target.classList.add('visible');
-      observer.unobserve(el.target);
-    }
+    if (el.isIntersecting) { el.target.classList.add('visible'); observer.unobserve(el.target); }
   });
 }, { threshold: 0.1 });
-
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// ── Contact form (Web3Forms) ──
+// Contact form
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-
-  const btn    = document.getElementById('submitBtn');
+  const btn = document.getElementById('submitBtn');
   const status = document.getElementById('formStatus');
+  const t = i18n[currentLang];
 
   btn.disabled = true;
-  btn.textContent = 'Envoi…';
+  btn.textContent = t['form.sending'];
   status.textContent = '';
   status.className = 'form-status';
 
-  const formData = new FormData(this);
-
   try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
-    });
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(this) });
     const data = await res.json();
-
     if (data.success) {
-      status.textContent = '✓ Message envoyé — je vous répondrai rapidement.';
+      status.textContent = t['form.success'];
       status.className = 'form-status success';
       this.reset();
-    } else {
-      throw new Error(data.message);
-    }
-  } catch (err) {
-    status.textContent = '✗ Une erreur est survenue. Veuillez réessayer.';
+    } else throw new Error();
+  } catch {
+    status.textContent = t['form.error'];
     status.className = 'form-status error';
   } finally {
     btn.disabled = false;
-    btn.textContent = 'Envoyer';
+    btn.textContent = t['form.send'];
   }
 });
 </script>
-
 </body>
 </html>
