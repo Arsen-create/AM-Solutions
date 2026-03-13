@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AM Solutions — Directeur de Projet IT · Financement Automobile</title>
+<meta name="description" content="AM Solutions — Directeur de projet IT spécialisé dans les applications de financement automobile. Conseil, pilotage et expertise pour les banques de financement.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f6f3;
+    --ink: #1a1a18;
+    --ink-muted: #6b6b65;
+    --ink-faint: #c4c4bc;
+    --accent: #1a1a18;
+    --line: #ddddd6;
+    --white: #ffffff;
+    --success: #2d6a4f;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    background: rgba(247,246,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 48px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.1s;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--ink-faint);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 1.0;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.25s;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    color: var(--ink-muted);
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.55s;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--ink);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.8; }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 96px 48px;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ── EXPERTISE ── */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .expertise-item {
+    background: var(--bg);
+    padding: 36px 32px;
+    transition: background 0.2s;
+  }
+
+  .expertise-item:hover { background: var(--white); }
+
+  .expertise-num {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+  .expertise-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .expertise-desc {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.8;
+  }
+
+  /* ── RESSOURCES (liens) ── */
+  .resources-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .resource-item {
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.2s;
+    gap: 20px;
+  }
+
+  .resource-item:hover { background: var(--white); }
+
+  .resource-left { flex: 1; }
+
+  .resource-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+
+  .resource-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .resource-desc {
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin-top: 4px;
+  }
+
+  .resource-arrow {
+    font-size: 20px;
+    color: var(--ink-faint);
+    transition: transform 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .resource-item:hover .resource-arrow {
+    transform: translateX(4px);
+    color: var(--ink);
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  @media (max-width: 720px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
+    .hero, section { padding-left: 24px; padding-right: 24px; }
+  }
+
+  .contact-intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .contact-intro p {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.9;
+  }
+
+  /* Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 14px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    resize: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--ink);
+  }
+
+  .form-group textarea { height: 120px; }
+
+  .form-submit {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-submit {
+    padding: 14px 36px;
+    background: var(--ink);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn-submit:hover { opacity: 0.75; }
+  .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .form-status {
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+
+  .form-status.success { color: var(--success); }
+  .form-status.error { color: #c0392b; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">AM Solutions</a>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#ressources">Ressources</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">Directeur de Projet IT · Indépendant</p>
+  <h1>AM<br><em>Solutions</em></h1>
+  <p class="hero-desc">
+    Spécialisé dans les applications IT pour les banques de financement automobile. 
+    Pilotage de projets complexes, expertise métier et transformation digitale.
+  </p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Prendre contact</a>
+    <a href="#ressources" class="btn-secondary">Voir les ressources</a>
+  </div>
+</div>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-label fade-in">Domaines d'expertise</div>
+  <div class="expertise-grid fade-in">
+    <div class="expertise-item">
+      <div class="expertise-num">01</div>
+      <div class="expertise-title">Pilotage de projet</div>
+      <p class="expertise-desc">Direction et coordination de projets IT d'envergure dans des environnements bancaires exigeants.</p>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-num">02</div>
+      <div class="expertise-title">Financement auto</div>
+      <p class="expertise-desc">Expertise approfondie des processus et systèmes d'information des banques de financement automobile.</p>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-num">03</div>
+      <div class="expertise-title">Transformation digitale</div>
+      <p class="expertise-desc">Accompagnement des organisations dans la modernisation de leurs applications et processus métier.</p>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-num">04</div>
+      <div class="expertise-title">Conseil & stratégie</div>
+      <p class="expertise-desc">Analyse des besoins, définition des roadmaps et alignement des solutions IT avec les objectifs business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESSOURCES -->
+<section id="ressources">
+  <div class="section-label fade-in">Ressources & outils</div>
+  <div class="resources-list fade-in">
+    <a href="https://arsen-create.github.io/dacia-jogger-consommation/" target="_blank" class="resource-item">
+      <div class="resource-left">
+        <div class="resource-tag">Outil · Automobile</div>
+        <div class="resource-title">Dacia Jogger — Comparateur GPL / SP98</div>
+        <div class="resource-desc">Analyse de la consommation et du coût réel selon la vitesse, avec fourchettes de prix.</div>
+      </div>
+      <span class="resource-arrow">→</span>
+    </a>
+    <!-- Ajouter d'autres liens ici -->
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label fade-in">Contact</div>
+  <div class="contact-grid">
+    <div class="contact-intro fade-in">
+      <h2>Travaillons<br><em>ensemble</em></h2>
+      <p>
+        Vous avez un projet IT dans le secteur du financement automobile ?
+        Une mission de conseil ou de pilotage à confier ?<br><br>
+        Décrivez votre besoin et je vous répondrai dans les meilleurs délais.
+      </p>
+    </div>
+    <form class="contact-form fade-in" id="contactForm">
+      <input type="hidden" name="access_key" value="86c9d105-5132-4937-b115-00e0c1bd1295">
+      <input type="hidden" name="subject" value="Nouveau message — AM Solutions">
+      <input type="hidden" name="from_name" value="AM Solutions Website">
+      <input type="checkbox" name="botcheck" style="display:none">
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="company">Société</label>
+        <input type="text" id="company" name="company" placeholder="Votre société (optionnel)">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Décrivez votre projet ou besoin…" required></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-submit" id="submitBtn">Envoyer</button>
+        <span class="form-status" id="formStatus"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">AM Solutions</span>
+  <span class="footer-copy">© 2026 · Tous droits réservés</span>
+</footer>
+
+<script>
+// ── Scroll animations ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.classList.add('visible');
+      observer.unobserve(el.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── Contact form (Web3Forms) ──
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const btn    = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+
+  btn.disabled = true;
+  btn.textContent = 'Envoi…';
+  status.textContent = '';
+  status.className = 'form-status';
+
+  const formData = new FormData(this);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      status.textContent = '✓ Message envoyé — je vous répondrai rapidement.';
+      status.className = 'form-status success';
+      this.reset();
+    } else {
+      throw new Error(data.message);
+    }
+  } catch (err) {
+    status.textContent = '✗ Une erreur est survenue. Veuillez réessayer.';
+    status.className = 'form-status error';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Envoyer';
+  }
+});
+</script>
+
+</body>
+</html>
