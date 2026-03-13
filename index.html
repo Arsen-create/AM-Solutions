@@ -18,7 +18,11 @@
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
 
   body {
     background: var(--bg);
@@ -103,6 +107,12 @@
     padding: 120px 48px 80px;
     max-width: 1100px;
     margin: 0 auto;
+  }
+
+  /* ── SCROLL SNAP ── */
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .hero-eyebrow {
@@ -427,7 +437,7 @@
 </nav>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero snap-section">
   <p class="hero-eyebrow" data-i18n="hero.eyebrow">Directeur de Projet IT · Indépendant</p>
   <h1>AM<br><em>Solutions</em></h1>
   <p class="hero-desc" data-i18n="hero.desc">Spécialisé dans les applications IT pour les banques de financement automobile. Pilotage de projets complexes, expertise métier et transformation digitale.</p>
@@ -438,7 +448,7 @@
 </div>
 
 <!-- EXPERTISE -->
-<section id="expertise">
+<section id="expertise" class="snap-section">
   <div class="section-label" data-i18n="expertise.label">Domaines d'expertise</div>
   <div class="expertise-grid">
     <div class="expertise-item"><div class="expertise-num">01</div><div class="expertise-title" data-i18n="exp1.title">Pilotage de projet</div><p class="expertise-desc" data-i18n="exp1.desc">Direction et coordination de projets IT d'envergure dans des environnements bancaires exigeants, avec maîtrise des méthodologies agiles et cycles en V.</p></div>
@@ -455,7 +465,7 @@
 </section>
 
 <!-- RESSOURCES -->
-<section id="ressources">
+<section id="ressources" class="snap-section">
   <div class="section-label" data-i18n="resources.label">Ressources & outils</div>
   <div class="resources-list">
     <a href="https://arsen-create.github.io/dacia-jogger-consommation/" target="_blank" class="resource-item">
@@ -478,7 +488,7 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="snap-section">
   <div class="section-label" data-i18n="contact.label">Contact</div>
   <div class="contact-grid">
     <div class="contact-intro">
