@@ -23,7 +23,7 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'DM Mono', monospace;
+    font-family: 'DM Mono', monospace;	
     font-weight: 300;
     line-height: 1.6;
     min-height: 100vh;
@@ -446,31 +446,16 @@
 <section id="expertise">
   <div class="section-label fade-in" data-i18n="expertise.label">Domaines d'expertise</div>
   <div class="expertise-grid fade-in">
-    <div class="expertise-item">
-      <div class="expertise-num">01</div>
-      <div class="expertise-title" data-i18n="exp1.title">Pilotage de projet</div>
-      <p class="expertise-desc" data-i18n="exp1.desc">Direction et coordination de projets IT d'envergure dans des environnements bancaires exigeants.</p>
-    </div>
-    <div class="expertise-item">
-      <div class="expertise-num">02</div>
-      <div class="expertise-title" data-i18n="exp2.title">Financement auto</div>
-      <p class="expertise-desc" data-i18n="exp2.desc">Expertise approfondie des processus et systèmes d'information des banques de financement automobile.</p>
-    </div>
-    <div class="expertise-item">
-      <div class="expertise-num">03</div>
-      <div class="expertise-title" data-i18n="exp3.title">Transformation digitale</div>
-      <p class="expertise-desc" data-i18n="exp3.desc">Accompagnement des organisations dans la modernisation de leurs applications et processus métier.</p>
-    </div>
-    <div class="expertise-item">
-      <div class="expertise-num">04</div>
-      <div class="expertise-title" data-i18n="exp4.title">Conseil & stratégie</div>
-      <p class="expertise-desc" data-i18n="exp4.desc">Analyse des besoins, définition des roadmaps et alignement des solutions IT avec les objectifs business.</p>
-    </div>
-    <div class="expertise-item">
-      <div class="expertise-num">05</div>
-      <div class="expertise-title" data-i18n="exp5.title">Facturation électronique</div>
-      <p class="expertise-desc" data-i18n="exp5.desc">Maîtrise approfondie des réglementations françaises et européennes (e‑invoicing & e‑reporting) et des architectures Peppol. Accompagnement des organisations dans la conception, l'implémentation et l'industrialisation de leurs processus de facturation électronique.</p>
-    </div>
+    <div class="expertise-item"><div class="expertise-num">01</div><div class="expertise-title" data-i18n="exp1.title">Pilotage de projet</div><p class="expertise-desc" data-i18n="exp1.desc">Direction et coordination de projets IT d'envergure dans des environnements bancaires exigeants, avec maîtrise des méthodologies agiles et cycles en V.</p></div>
+    <div class="expertise-item"><div class="expertise-num">02</div><div class="expertise-title" data-i18n="exp2.title">Financement automobile</div><p class="expertise-desc" data-i18n="exp2.desc">Expertise approfondie des processus et systèmes d'information des banques de financement automobile, incluant les produits financiers, assurances et circuits de validation contractuelle.</p></div>
+    <div class="expertise-item"><div class="expertise-num">03</div><div class="expertise-title" data-i18n="exp3.title">Transformation digitale</div><p class="expertise-desc" data-i18n="exp3.desc">Accompagnement des organisations dans la modernisation de leurs applications et processus métier, avec une attention particulière à l'adoption et à la conduite du changement.</p></div>
+    <div class="expertise-item"><div class="expertise-num">04</div><div class="expertise-title" data-i18n="exp4.title">Conseil & stratégie IT</div><p class="expertise-desc" data-i18n="exp4.desc">Analyse des besoins, définition des roadmaps et alignement des solutions IT avec les objectifs business dans des contextes multi-pays et multi-équipes.</p></div>
+    <div class="expertise-item"><div class="expertise-num">05</div><div class="expertise-title" data-i18n="exp5.title">Facturation électronique</div><p class="expertise-desc" data-i18n="exp5.desc">Maîtrise des réglementations françaises et européennes (e‑invoicing & e‑reporting) et des architectures Peppol. Conception, implémentation et industrialisation des processus de facturation électronique (FR, PL, BE).</p></div>
+    <div class="expertise-item"><div class="expertise-num">06</div><div class="expertise-title" data-i18n="exp6.title">Architecture fonctionnelle & SI</div><p class="expertise-desc" data-i18n="exp6.desc">Conception et coordination d'architectures fonctionnelles complexes, intégration de flux financiers et documentaires, structuration des modèles de données et alignement des solutions IT avec les besoins réglementaires et métier.</p></div>
+    <div class="expertise-item"><div class="expertise-num">07</div><div class="expertise-title" data-i18n="exp7.title">Conformité & gouvernance réglementaire</div><p class="expertise-desc" data-i18n="exp7.desc">Mise en conformité des processus financiers, fiscaux et contractuels ; maîtrise des exigences DGFiP, KYC / Connected Parties, ainsi que des mécanismes de traçabilité, auditabilité et contrôle interne.</p></div>
+    <div class="expertise-item"><div class="expertise-num">08</div><div class="expertise-title" data-i18n="exp8.title">Tests & qualité fonctionnelle</div><p class="expertise-desc" data-i18n="exp8.desc">Encadrement des phases de recette (UAT), structuration des jeux d'essai, validation fonctionnelle multi-systèmes et pilotage des corrections jusqu'à la mise en production.</p></div>
+    <div class="expertise-item"><div class="expertise-num">09</div><div class="expertise-title" data-i18n="exp9.title">Cycle de vie du crédit</div><p class="expertise-desc" data-i18n="exp9.desc">Maîtrise des processus opérationnels liés au financement, aux assurances, aux produits financiers et aux circuits de validation des données contractuelles.</p></div>
+    <div class="expertise-item"><div class="expertise-num">10</div><div class="expertise-title" data-i18n="exp10.title">Coordination & conduite du changement</div><p class="expertise-desc" data-i18n="exp10.desc">Animation d'ateliers, structuration des besoins, accompagnement des équipes métier et gestion de l'adoption des nouveaux processus dans des contextes multi-pays (FR, PL, BE).</p></div>
   </div>
 </section>
 
@@ -540,11 +525,16 @@ const i18n = {
     'hero.desc':"Spécialisé dans les applications IT pour les banques de financement automobile. Pilotage de projets complexes, expertise métier et transformation digitale.",
     'hero.cta1':'Prendre contact','hero.cta2':'Voir les ressources',
     'expertise.label':"Domaines d'expertise",
-    'exp1.title':'Pilotage de projet','exp1.desc':"Direction et coordination de projets IT d'envergure dans des environnements bancaires exigeants.",
-    'exp2.title':'Financement auto','exp2.desc':"Expertise approfondie des processus et systèmes d'information des banques de financement automobile.",
-    'exp3.title':'Transformation digitale','exp3.desc':"Accompagnement des organisations dans la modernisation de leurs applications et processus métier.",
-    'exp4.title':'Conseil & stratégie','exp4.desc':"Analyse des besoins, définition des roadmaps et alignement des solutions IT avec les objectifs business.",
-    'exp5.title':'Facturation électronique','exp5.desc':"Maîtrise approfondie des réglementations françaises et européennes (e‑invoicing & e‑reporting) et des architectures Peppol. Accompagnement des organisations dans la conception, l'implémentation et l'industrialisation de leurs processus de facturation électronique.",
+    'exp1.title':'Pilotage de projet','exp1.desc':"Direction et coordination de projets IT d'envergure dans des environnements bancaires exigeants, avec maîtrise des méthodologies agiles et cycles en V.",
+    'exp2.title':'Financement automobile','exp2.desc':"Expertise approfondie des processus et systèmes d'information des banques de financement automobile, incluant les produits financiers, assurances et circuits de validation contractuelle.",
+    'exp3.title':'Transformation digitale','exp3.desc':"Accompagnement des organisations dans la modernisation de leurs applications et processus métier, avec une attention particulière à l'adoption et à la conduite du changement.",
+    'exp4.title':'Conseil & stratégie IT','exp4.desc':"Analyse des besoins, définition des roadmaps et alignement des solutions IT avec les objectifs business dans des contextes multi-pays et multi-équipes.",
+    'exp5.title':'Facturation électronique','exp5.desc':"Maîtrise des réglementations françaises et européennes (e‑invoicing & e‑reporting) et des architectures Peppol. Conception, implémentation et industrialisation des processus de facturation électronique (FR, PL, BE).",
+    'exp6.title':'Architecture fonctionnelle & SI','exp6.desc':"Conception et coordination d'architectures fonctionnelles complexes, intégration de flux financiers et documentaires, structuration des modèles de données et alignement des solutions IT avec les besoins réglementaires et métier.",
+    'exp7.title':'Conformité & gouvernance réglementaire','exp7.desc':"Mise en conformité des processus financiers, fiscaux et contractuels ; maîtrise des exigences DGFiP, KYC / Connected Parties, ainsi que des mécanismes de traçabilité, auditabilité et contrôle interne.",
+    'exp8.title':'Tests & qualité fonctionnelle','exp8.desc':"Encadrement des phases de recette (UAT), structuration des jeux d'essai, validation fonctionnelle multi-systèmes et pilotage des corrections jusqu'à la mise en production.",
+    'exp9.title':'Cycle de vie du crédit','exp9.desc':"Maîtrise des processus opérationnels liés au financement, aux assurances, aux produits financiers et aux circuits de validation des données contractuelles.",
+    'exp10.title':'Coordination & conduite du changement','exp10.desc':"Animation d'ateliers, structuration des besoins, accompagnement des équipes métier et gestion de l'adoption des nouveaux processus dans des contextes multi-pays (FR, PL, BE).",
     'resources.label':'Ressources & outils',
     'res1.tag':'Outil · Automobile','res1.title':'Dacia Jogger — Comparateur GPL / SP98','res1.desc':'Analyse de la consommation et du coût réel selon la vitesse, avec fourchettes de prix.',
     'contact.label':'Contact','contact.title':'Travaillons<br><em>ensemble</em>',
@@ -563,7 +553,12 @@ const i18n = {
     'exp2.title':'Automotive finance','exp2.desc':'In-depth expertise in the processes and information systems of automotive finance banks.',
     'exp3.title':'Digital transformation','exp3.desc':'Supporting organisations in modernising their applications and business processes.',
     'exp4.title':'Consulting & strategy','exp4.desc':'Needs analysis, roadmap definition and alignment of IT solutions with business objectives.',
-    'exp5.title':'Electronic invoicing','exp5.desc':'Deep knowledge of French and European regulations (e‑invoicing & e‑reporting) and Peppol architectures. Supporting organisations in the design, implementation and industrialisation of their electronic invoicing processes.',
+    'exp5.title':'Electronic invoicing','exp5.desc':'Mastery of French and European regulations (e‑invoicing & e‑reporting) and Peppol architectures. Design, implementation and industrialisation of electronic invoicing processes (FR, PL, BE).',
+    'exp6.title':'Functional architecture & IS integration','exp6.desc':'Design and coordination of complex functional architectures, integration of financial and documentary flows, data model structuring and alignment of IT solutions with regulatory and business requirements.',
+    'exp7.title':'Regulatory compliance & governance','exp7.desc':'Bringing financial, tax and contractual processes into compliance; expertise in DGFiP, KYC / Connected Parties requirements, as well as traceability, auditability and internal control mechanisms.',
+    'exp8.title':'Testing & functional quality','exp8.desc':'Management of acceptance testing phases (UAT), structuring of test scenarios, multi-system functional validation and oversight of corrections through to production release.',
+    'exp9.title':'Credit lifecycle management','exp9.desc':'Mastery of operational processes related to financing, insurance, financial products and contractual data validation workflows.',
+    'exp10.title':'Business coordination & change management','exp10.desc':'Workshop facilitation, requirements structuring, business team support and management of process adoption in multi-country contexts (FR, PL, BE).',
     'resources.label':'Resources & tools',
     'res1.tag':'Tool · Automotive','res1.title':'Dacia Jogger — LPG / SP98 Comparison','res1.desc':'Analysis of fuel consumption and actual cost by speed, with price ranges.',
     'contact.label':'Contact','contact.title':"Let's work<br><em>together</em>",
@@ -582,7 +577,12 @@ const i18n = {
     'exp2.title':'Automobilfinanzierung','exp2.desc':'Fundierte Kenntnisse der Prozesse und Informationssysteme von Automobilfinanzierungsbanken.',
     'exp3.title':'Digitale Transformation','exp3.desc':'Begleitung von Organisationen bei der Modernisierung ihrer Anwendungen und Geschäftsprozesse.',
     'exp4.title':'Beratung & Strategie','exp4.desc':'Bedarfsanalyse, Roadmap-Definition und Ausrichtung von IT-Lösungen an Unternehmenszielen.',
-    'exp5.title':'Elektronische Rechnungsstellung','exp5.desc':'Tiefgreifende Kenntnisse der französischen und europäischen Vorschriften (e‑invoicing & e‑reporting) und Peppol-Architekturen. Begleitung von Organisationen bei Konzeption, Implementierung und Industrialisierung ihrer elektronischen Rechnungsprozesse.',
+    'exp5.title':'Elektronische Rechnungsstellung','exp5.desc':'Fundierte Kenntnisse der französischen und europäischen Vorschriften (e‑invoicing & e‑reporting) und Peppol-Architekturen. Konzeption, Implementierung und Industrialisierung elektronischer Rechnungsprozesse (FR, PL, BE).',
+    'exp6.title':'Funktionale Architektur & SI-Integration','exp6.desc':'Konzeption und Koordination komplexer funktionaler Architekturen, Integration von Finanz- und Dokumentenflüssen, Datenmodellstrukturierung und Abstimmung von IT-Lösungen mit regulatorischen und fachlichen Anforderungen.',
+    'exp7.title':'Regulatorische Compliance & Governance','exp7.desc':'Compliance-Umsetzung für finanzielle, steuerliche und vertragliche Prozesse; Kenntnisse der DGFiP-, KYC- / Connected-Parties-Anforderungen sowie Rückverfolgbarkeits-, Prüfbarkeits- und Kontrollmechanismen.',
+    'exp8.title':'Tests & funktionale Qualität','exp8.desc':'Steuerung von Abnahmetestphasen (UAT), Strukturierung von Testszenarien, Multi-System-Funktionsvalidierung und Überwachung von Korrekturen bis zur Produktionsfreigabe.',
+    'exp9.title':'Kreditlebenszyklusmanagement','exp9.desc':'Beherrschung der operativen Prozesse im Zusammenhang mit Finanzierung, Versicherungen, Finanzprodukten und Validierungsworkflows für Vertragsdaten.',
+    'exp10.title':'Fachliche Koordination & Change Management','exp10.desc':'Workshop-Moderation, Anforderungsstrukturierung, Unterstützung von Fachabteilungen und Steuerung der Prozessadoption in länderübergreifenden Kontexten (FR, PL, BE).',
     'resources.label':'Ressourcen & Tools',
     'res1.tag':'Tool · Automobil','res1.title':'Dacia Jogger — LPG / SP98 Vergleich','res1.desc':'Analyse des Kraftstoffverbrauchs und der tatsächlichen Kosten nach Geschwindigkeit, mit Preisspannen.',
     'contact.label':'Kontakt','contact.title':'Lassen Sie uns<br><em>zusammenarbeiten</em>',
@@ -601,7 +601,12 @@ const i18n = {
     'exp2.title':'Finanziamento auto','exp2.desc':'Competenza approfondita nei processi e nei sistemi informativi delle banche di finanziamento automobilistico.',
     'exp3.title':'Trasformazione digitale','exp3.desc':'Accompagnamento delle organizzazioni nella modernizzazione delle loro applicazioni e processi aziendali.',
     'exp4.title':'Consulenza & strategia','exp4.desc':'Analisi dei fabbisogni, definizione delle roadmap e allineamento delle soluzioni IT agli obiettivi aziendali.',
-    'exp5.title':'Fatturazione elettronica','exp5.desc':'Conoscenza approfondita delle normative francesi ed europee (e‑invoicing & e‑reporting) e delle architetture Peppol. Supporto alle organizzazioni nella progettazione, implementazione e industrializzazione dei processi di fatturazione elettronica.',
+    'exp5.title':'Fatturazione elettronica','exp5.desc':'Padronanza delle normative francesi ed europee (e‑invoicing & e‑reporting) e delle architetture Peppol. Progettazione, implementazione e industrializzazione dei processi di fatturazione elettronica (FR, PL, BE).',
+    'exp6.title':'Architettura funzionale & integrazione SI','exp6.desc':'Progettazione e coordinamento di architetture funzionali complesse, integrazione di flussi finanziari e documentali, strutturazione dei modelli di dati e allineamento delle soluzioni IT con i requisiti normativi e aziendali.',
+    'exp7.title':'Conformità normativa & governance','exp7.desc':'Messa in conformità dei processi finanziari, fiscali e contrattuali; padronanza dei requisiti DGFiP, KYC / Connected Parties, nonché dei meccanismi di tracciabilità, verificabilità e controllo interno.',
+    'exp8.title':'Test & qualità funzionale','exp8.desc':'Supervisione delle fasi di collaudo (UAT), strutturazione degli scenari di test, validazione funzionale multi-sistema e gestione delle correzioni fino al rilascio in produzione.',
+    'exp9.title':'Ciclo di vita del credito','exp9.desc':'Padronanza dei processi operativi legati al finanziamento, alle assicurazioni, ai prodotti finanziari e ai flussi di validazione dei dati contrattuali.',
+    'exp10.title':'Coordinamento aziendale & change management','exp10.desc':'Facilitazione di workshop, strutturazione dei requisiti, supporto ai team aziendali e gestione dell'adozione dei nuovi processi in contesti multinazionali (FR, PL, BE).',
     'resources.label':'Risorse & strumenti',
     'res1.tag':'Strumento · Automotive','res1.title':'Dacia Jogger — Confronto GPL / SP98','res1.desc':'Analisi del consumo di carburante e del costo reale in base alla velocità, con fasce di prezzo.',
     'contact.label':'Contatto','contact.title':'Lavoriamo<br><em>insieme</em>',
