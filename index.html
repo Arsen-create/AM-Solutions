@@ -23,7 +23,7 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'DM Mono', monospace;	
+    font-family: 'DM Mono', monospace;
     font-weight: 300;
     line-height: 1.6;
     min-height: 100vh;
@@ -401,6 +401,9 @@
   }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+  /* Fallback: if JS hasn't run yet, avoid invisible content on print/no-JS */
+  @media print { .fade-in { opacity: 1 !important; transform: none !important; } }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 720px) {
     nav { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
@@ -643,8 +646,24 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(el => {
     if (el.isIntersecting) { el.target.classList.add('visible'); observer.unobserve(el.target); }
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+}, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+
+// Immediately make visible anything already in viewport on load
+function revealAll() {
+  document.querySelectorAll('.fade-in').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('visible');
+    } else {
+      observer.observe(el);
+    }
+  });
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', revealAll);
+} else {
+  revealAll();
+}
 
 // Contact form
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
